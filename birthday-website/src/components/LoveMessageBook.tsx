@@ -29,7 +29,7 @@ export default function LoveMessageBook() {
                         <div className={styles.back}>
                             <div className={styles.leftPage}>
                                 <p className="text-sm md:text-base text-[#5b3a1d] leading-relaxed px-2">
-                                    "Hari ini adalah hari spesialmu, dan aku ingin kamu tahu betapa berharganya kamu dalam hidupku."
+                                    "Selamat ulang tahun untuk jiwa yang telah mengubah hidupku menjadi kisah cinta terindah yang pernah ada."
                                 </p>
                             </div>
                         </div>
@@ -37,20 +37,17 @@ export default function LoveMessageBook() {
                     <div className={styles.inside}>
                         <div>
                             <motion.p
-                                className="text-base md:text-lg text-[#5b3a1d] leading-relaxed mb-2 px-2 pt-3"
+                                className="text-xs md:text-base text-[#5b3a1d] leading-relaxed mb-2 px-2 pt-3"
                                 style={{
-                                    fontFamily: "'Zeyada', 'Dancing Script', cursive",
                                     fontWeight: 900,
                                     letterSpacing: "0.03em",
-                                    textAlign: "center",
+                                    textAlign: "justify",
                                 }}
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={flipped ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                                 transition={{ delay: 1.5, duration: 0.8 }}
                             >
-                                Di hari ulang tahunmu ini, aku ingin kamu tahu—setiap detik bersamamu bagaikan
-                                lembaran kisah terindah dalam hidupku. Kamu adalah peluk hangat di musim hujan,
-                                tawa di pagi hari, dan cinta yang tak pernah pudar.
+                                Selamat ulang tahun, sayang. Terima kasih ya, sudah menjadi alasan banyak senyum dan tawa di hidupku selama ini. Bersamamu, semuanya terasa lebih ringan dan berwarna. Semoga di usiamu yang baru ini, kamu selalu diberi kesehatan, kebahagiaan yang melimpah, dan kemudahan dalam setiap langkah. Aku di sini untuk menemanimu.
                             </motion.p>
                             <motion.p
                                 className="text-base md:text-lg text-[#6f4224] font-bold"

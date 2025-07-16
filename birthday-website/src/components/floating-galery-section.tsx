@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState } from "react";
 import "./floating-galery.module.css";
 
 // ====== RANDOM IMAGE DATA ======
@@ -108,35 +108,46 @@ type FloatingImageData = {
 };
 
 // Generate random images only once per mount
-function useRandomFloatingImages(count: number = 12): FloatingImageData[] {
-    return useMemo(() => {
-        return Array.from({ length: count }).map((_, idx) => {
-            const url = randomFromArray(imageUrls);
-            const alt = randomFromArray(altTexts);
-            const start = randomInt(-180, 160);
-            const end = randomInt(60, 320);
-            const size = randomFromArray(sizes);
-            const pos = positions[idx % positions.length];
-            return {
-                url,
-                alt,
-                start,
-                end,
-                style: `${size} xl:${size.replace("w-", "w-")} absolute ${pos} drop-shadow-2xl`,
-            };
-        });
-    }, [count]);
+function getRandomFloatingImages(count: number = 12): FloatingImageData[] {
+    return Array.from({ length: count }).map((_, idx) => {
+        const url = randomFromArray(imageUrls);
+        const alt = randomFromArray(altTexts);
+        const start = randomInt(-180, 160);
+        const end = randomInt(60, 320);
+        const size = randomFromArray(sizes);
+        const pos = positions[idx % positions.length];
+        return {
+            url,
+            alt,
+            start,
+            end,
+            style: `${size} xl:${size.replace("w-", "w-")} absolute ${pos} drop-shadow-2xl`,
+        };
+    });
 }
 
 // ===== COMPONENT =====
 export const FloatingElements = ({ count = 12 }: { count?: number }) => {
-    const floatingImages = useRandomFloatingImages(count);
+    const [randomKey, setRandomKey] = useState(0);
+    const floatingImages = useMemo(() => getRandomFloatingImages(count), [randomKey, count]);
+
+    const handleShuffle = () => {
+        setRandomKey((prevKey) => prevKey + 1);
+    };
 
     return (
-        <div className="pointer-events-none select-none mx-auto max-w-7xl px-4 pt-[60px] relative h-[800px] md:h-[1200px] z-10">
-            {floatingImages.map((item, idx) => (
-                <FloatingImage key={idx} {...item} />
-            ))}
+        <div className="relative">
+            <button
+                onClick={handleShuffle}
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 px-4 py-2 bg-yellow-500 text-white rounded-lg shadow-lg hover:bg-yellow-600 transition"
+            >
+                Shuffle Images
+            </button>
+            <div className="pointer-events-none select-none mx-auto max-w-7xl px-4 pt-[60px] relative h-[800px] md:h-[1200px] z-10">
+                {floatingImages.map((item, idx) => (
+                    <FloatingImage key={idx} {...item} />
+                ))}
+            </div>
         </div>
     );
 };
@@ -173,4 +184,4 @@ const FloatingImage = ({
             loading="lazy" // Lazy loading
         />
     );
-};
+}

@@ -45,7 +45,7 @@ export default function BirthdayWebsite() {
     return (
       <div className="bg-gradient-to-br from-yellow-100 via-pink-100 to-amber-200 min-h-screen flex items-center justify-center">
         <CountdownRolodex
-          targetDate={new Date("2025-07-17T00:00:00")}
+          targetDate={new Date("")}
           onFinish={handleCountdownFinish}
         />
       </div>
@@ -60,7 +60,7 @@ export default function BirthdayWebsite() {
         <div className="h-[200px] md:h-[300px]" />
         <LoveMessageBook />
         <MusicPlayer />
-        <CountdownRolodex targetDate={new Date("2025-07-17T00:00:00")} />
+        <CountdownRolodex targetDate={new Date(Date.now())} />
       </LenisProvider>
       <Confetti
         width={width}
@@ -105,7 +105,7 @@ const HeroSection = () => (
       transition={{ duration: 1, delay: 0.3 }}
       className="mt-8 text-xl xl:text-2xl text-amber-900 font-medium drop-shadow text-center max-w-2xl px-4"
     >
-      Semoga hari-harimu selalu ceria, hangat, dan penuh cinta 🤎
+      Semoga setiap detik hidupmu dipenuhi kebahagiaan yang tak terhingga. 🤎
     </motion.p>
   </section>
 );
