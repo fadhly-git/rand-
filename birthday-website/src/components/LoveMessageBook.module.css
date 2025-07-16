@@ -1,0 +1,341 @@
+/* Google Fonts: Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3vw;
+    min-height: 600px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.cardCenter {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.floatingImgLeft,
+.floatingImgRight {
+    width: 220px;
+    height: auto;
+    box-shadow: 0 8px 32px #c6a17a66;
+    border-radius: 16px;
+    z-index: 1;
+}
+
+
+@media (max-width: 900px) {
+
+    .floatingImgLeft,
+    .floatingImgRight {
+        width: 120px;
+    }
+
+    .card {
+        width: 95vw;
+        height: 320px;
+    }
+}
+
+.card {
+    width: 800px;
+    max-width: 95vw;
+    height: 450px;
+    position: relative;
+    perspective: 1200px;
+    cursor: pointer;
+    transition: transform 1s cubic-bezier(.91, 1.35, .27, 1.11);
+}
+
+@media (min-width: 900px) {
+    .card {
+        width: 800px;
+        height: 550px;
+    }
+}
+
+.inside {
+    background: linear-gradient(to right, #e7e7e7, #fffbe5 30%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    padding: 15px 20px;
+    text-align: center;
+    z-index: 2;
+    line-height: 1.3;
+    font-size: 0.8rem;
+    color: #835a1c;
+    font-weight: 500;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.back {
+    transform: rotateY(180deg);
+    background: linear-gradient(to left, #e7e7e7, #fffbe5 30%);
+    border-radius: 8px 0 0 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.leftPage {
+    width: 100%;
+    text-align: left;
+    font-family: "Pacifico", "Dancing Script", cursive;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #5b3a1d;
+}
+
+.inside h1 {
+    font-size: 30px;
+    line-height: 30px;
+    margin: 0.3rem 0;
+}
+
+@media (min-width: 900px) {
+    .inside {
+        font-size: 1rem;
+        padding: 25px 30px;
+        line-height: 1.4;
+    }
+
+}
+
+@media (max-width: 900px) {
+    .inside {
+        font-size: 0.7rem;
+        padding: 12px 15px;
+        line-height: 1.2;
+    }
+}
+
+.outside p {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    text-align: center;
+    letter-spacing: 4px;
+    color: #000046;
+    font-weight: 600;
+}
+
+
+@media (min-width: 900px) {
+    .card {
+        width: 600px;
+        height: 400px;
+    }
+}
+
+/* (lanjutkan styling seperti sebelumnya untuk .outside, .inside, .cake) */
+.card:active {
+    transform: rotate(-5deg) scale(0.98);
+}
+
+
+
+.outside,
+.inside {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50.1%;
+    backface-visibility: hidden;
+    font-family: "Poppins", sans-serif;
+    user-select: none;
+}
+
+.inside {
+    background: linear-gradient(to right, #e7e7e7, #fffbe5 30%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    padding: 15px 20px;
+    text-align: center;
+    z-index: 2;
+    line-height: 1.4;
+    font-size: 0.85rem;
+    color: #835a1c;
+    font-weight: 500;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.inside h1 {
+    font-size: 60px;
+    line-height: 60px;
+    margin: 0.5rem 0;
+}
+
+@media (min-width: 900px) {
+    .inside {
+        font-size: 1rem;
+        padding: 20px 25px;
+        line-height: 1.5;
+    }
+
+    .inside h1 {
+        font-size: 80px;
+        line-height: 80px;
+        margin: 0.8rem 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .inside {
+        font-size: 0.75rem;
+        padding: 10px 15px;
+        line-height: 1.3;
+    }
+
+    .inside h1 {
+        font-size: 40px;
+        line-height: 40px;
+        margin: 0.3rem 0;
+    }
+}
+
+.outside {
+    transform-style: preserve-3d;
+    z-index: 3;
+    transform-origin: left;
+    transition: transform 2s cubic-bezier(.91, 1.35, .27, 1.11);
+    cursor: pointer;
+}
+
+.front,
+.back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+}
+
+.front {
+    background-color: #fff;
+    border-radius: 8px 0 0 8px;
+}
+
+.back {
+    transform: rotateY(180deg);
+    background: linear-gradient(to left, #e7e7e7, #fffbe5 30%);
+    border-radius: 8px 0 0 8px;
+}
+
+/* Flip logic */
+.flipped .outside {
+    transform: rotateY(-130deg);
+}
+
+.flipped .inside {
+    z-index: 4;
+}
+
+/* --- Cake Animation --- */
+.cake {
+    width: 100%;
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.top-layer,
+.middle-layer,
+.bottom-layer {
+    height: 40px;
+    width: 120px;
+    background-repeat: repeat;
+    background-size: 60px 100px;
+    background-position: 28px 0;
+    background-image: linear-gradient(transparent 24px,
+            #fedbab 24px,
+            #fedbab 30px,
+            transparent 30px),
+        radial-gradient(circle at 30px 5px, #994c10 14px, #fcbf29 15px);
+    border-radius: 7px 7px 0 0;
+    position: relative;
+    margin: auto;
+}
+
+.middle-layer {
+    transform: scale(0.76);
+    top: 3px;
+}
+
+.top-layer {
+    transform: scale(0.59);
+    top: 13px;
+}
+
+.candle {
+    height: 20px;
+    width: 7px;
+    background: repeating-linear-gradient(45deg,
+            #fd3018 0,
+            #fd3018 3px,
+            #ffa89e 3px,
+            #ffa89e 6px);
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 92px;
+    border-radius: 2px;
+}
+
+.candle:before {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    background-color: #ffa500;
+    border-radius: 0 50% 50% 50%;
+    bottom: 16px;
+    left: -1.5px;
+    transform: rotate(45deg);
+    filter: blur(0.5px);
+    box-shadow: 0 0 18px 2px #ffd700, 0 0 7px 1px #ffec9a;
+    animation: candle-flame 1s infinite alternate;
+    opacity: 0.87;
+}
+
+@keyframes candle-flame {
+    0% {
+        transform: scaleY(1) scaleX(1) rotate(45deg);
+        opacity: .92;
+    }
+
+    100% {
+        transform: scaleY(1.2) scaleX(0.83) rotate(45deg);
+        opacity: 1;
+    }
+}
+
+.outside p {
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 14px;
+    text-align: center;
+    letter-spacing: 4px;
+    color: #000046;
+    font-weight: 600;
+}

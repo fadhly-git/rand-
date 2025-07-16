@@ -1,0 +1,33 @@
+.floating-gallery {
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.8rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    box-shadow: 0 6px 32px #e5bfa6cc;
+    margin: 2.5rem 0;
+}
+
+.gallery-item {
+    transition: box-shadow 0.2s;
+}
+
+.gallery-item:hover {
+    box-shadow: 0 12px 44px #e5bfa6ee;
+}
+
+.pointer-events-none {
+    position: relative;
+    z-index: 10;
+    height: 800px;
+    /* Adjust height for better spacing */
+}
+
+@media (min-width: 768px) {
+    .pointer-events-none {
+        height: 1200px;
+        /* Larger height for bigger screens */
+    }
+}
